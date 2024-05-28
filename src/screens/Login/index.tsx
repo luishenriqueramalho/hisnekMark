@@ -1,13 +1,17 @@
 import { Logo } from "@/assets/svgs";
 import React from "react";
-import { SafeAreaView, Text } from "react-native";
+import { SafeAreaView } from "react-native";
 import { Content, Guest, Header, Input, TitleInput } from "./styles";
 import { Wrapper } from "@/utils/global";
 import Button from "@/components/Button";
 import { useNavigation } from "@react-navigation/native";
+import { RootStackParamList } from "@/navigator";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+
+type ProductListNavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
 const Login: React.FC = () => {
-  const navigaton = useNavigation();
+  const navigation = useNavigation<ProductListNavigationProp>();
 
   return (
     <>
@@ -24,7 +28,7 @@ const Login: React.FC = () => {
           <TitleInput>Senha</TitleInput>
           <Input />
         </Content>
-        <Guest onPress={() => navigaton.navigate("Home")}>Sou convidado</Guest>
+        <Guest onPress={() => navigation.navigate("Home")}>Sou convidado</Guest>
       </Wrapper>
       <Button title="Entrar" />
     </>

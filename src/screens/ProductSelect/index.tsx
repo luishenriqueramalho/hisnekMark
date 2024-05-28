@@ -1,7 +1,7 @@
 import NavigationBar from "@/components/NavigationBar";
 import { Scroll, Wrapper } from "@/utils/global";
 import React from "react";
-import { Image, SafeAreaView, Text } from "react-native";
+import { Image, SafeAreaView } from "react-native";
 import Arroz from "@/assets/img/arroz.png";
 import {
   Add,
@@ -18,7 +18,6 @@ import {
   TitleButtonAdd,
   ValuePlus,
 } from "./styles";
-import Menu from "@/components/Menu";
 import { BackButton } from "@/assets/svgs";
 import { useNavigation } from "@react-navigation/native";
 

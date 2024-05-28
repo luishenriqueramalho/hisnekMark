@@ -22,9 +22,13 @@ import Carnes from "@/assets/img/carnes.png";
 import Arroz from "@/assets/img/arroz.png";
 import AguaSanitaria from "@/assets/img/aguasanitaria.png";
 import { useNavigation } from "@react-navigation/native";
+import { RootStackParamList } from "@/navigator";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+
+type ProductListNavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
 const ProductList: React.FC = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<ProductListNavigationProp>();
 
   return (
     <>

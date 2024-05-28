@@ -1,13 +1,12 @@
+import React from "react";
 import Svg, { Path } from "react-native-svg";
 
-export const MenuHome = ({ isSelected }) => (
-  <Svg
-    width="35"
-    height="35"
-    viewBox="0 0 35 35"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+interface MenuHomeProps {
+  isSelected?: boolean;
+}
+
+export const MenuHome: React.FC<MenuHomeProps> = ({ isSelected }) => (
+  <Svg width="35" height="35" viewBox="0 0 35 35" fill="none">
     <Path
       d="M13.239 23.5309H21.7192"
       stroke={isSelected ? "#FF6900" : "#6B6D7B"}

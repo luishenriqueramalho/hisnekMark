@@ -1,13 +1,8 @@
+import React from "react";
 import Svg, { G, Mask, Path } from "react-native-svg";
 
 export const NotCart = () => (
-  <Svg
-    width="300"
-    height="300"
-    viewBox="0 0 300 300"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <Svg width="300" height="300" viewBox="0 0 300 300" fill="none">
     <Path
       d="M149.886 285.03C228.815 285.03 292.8 248.088 292.8 202.518C292.8 156.948 228.815 120.006 149.886 120.006C70.9568 120.006 6.97198 156.948 6.97198 202.518C6.97198 248.088 70.9568 285.03 149.886 285.03Z"
       fill="#F5F5F5"
@@ -517,7 +512,6 @@ export const NotCart = () => (
     />
     <Mask
       id="mask0_37_526"
-      style="mask-type:luminance"
       maskUnits="userSpaceOnUse"
       x="93"
       y="239"
