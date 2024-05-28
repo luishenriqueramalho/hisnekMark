@@ -1,0 +1,28 @@
+Descrição do Teste:
+
+Desenvolva um aplicativo em React Native que simule um catálogo de produtos. O aplicativo deverá listar produtos, permitir a visualização detalhada de cada um e simular a adição de produtos a um carrinho de compras.
+
+Requisitos Funcionais:
+
+Tela de Listagem de Produtos:
+Exiba uma lista de produtos com imagem, título e preço.
+Ao tocar em um produto, o usuário deve ser redirecionado para a tela de detalhes.
+
+Tela de Detalhes do Produto:
+Mostre imagem, título, descrição e preço do produto.
+Inclua um botão para simular a adição do produto a um carrinho de compras.
+
+Tela de Carrinho de Compras:
+Liste os produtos adicionados ao carrinho com suas quantidades.
+Inclua o total geral baseado nos itens do carrinho.
+
+Requisitos Técnicos:
+Use GraphQL para gerenciar a comunicação com um servidor backend fictício. (Para simplificar, você pode mockar as respostas do GraphQL, não sendo necessário implementar um servidor real.)
+Armazene e gerencie o estado do aplicativo (por exemplo, itens do carrinho) usando o contexto do React ou uma biblioteca de gerenciamento de estado de sua escolha.
+Utilize AWS Amplify para autenticação de usuários.
+O aplicativo deve ser desenvolvido usando TypeScript.
+
+Desejável:
+Design responsivo e intuitivo.
+Animações para transições entre telas ou ao adicionar itens ao carrinho.
+Testes unitários para componentes críticos.

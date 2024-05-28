@@ -27,7 +27,9 @@ export const Products = styled.View`
   justify-content: space-between;
 `;
 
-export const Card = styled.TouchableOpacity`
+export const Card = styled.TouchableOpacity.attrs({
+  activeOpacity: 0.7,
+})`
   width: 48%;
   margin-bottom: ${scale(20)}px;
   background-color: ${Colors.white};

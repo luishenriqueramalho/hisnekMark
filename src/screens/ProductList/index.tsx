@@ -1,5 +1,5 @@
 import React from "react";
-import { Image } from "react-native";
+import { ActivityIndicator, Image, Text } from "react-native";
 import {
   Card,
   Categorys,
@@ -19,16 +19,20 @@ import Oferta from "@/assets/img/oferta.png";
 import Despensa from "@/assets/img/despensa.png";
 import Limpeza from "@/assets/img/limpeza.png";
 import Carnes from "@/assets/img/carnes.png";
-import Arroz from "@/assets/img/arroz.png";
-import AguaSanitaria from "@/assets/img/aguasanitaria.png";
 import { useNavigation } from "@react-navigation/native";
 import { RootStackParamList } from "@/navigator";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { useQuery } from "@apollo/client";
+import { GET_PRODUCTS } from "graphql/queries";
 
 type ProductListNavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
 const ProductList: React.FC = () => {
   const navigation = useNavigation<ProductListNavigationProp>();
+  const { loading, error, data } = useQuery(GET_PRODUCTS);
+
+  if (loading) return <ActivityIndicator size="large" color="#0000ff" />;
+  if (error) return <Text>Error: {error.message}</Text>;
 
   return (
     <>
@@ -52,44 +56,32 @@ const ProductList: React.FC = () => {
       </Categorys>
       <Scroll>
         <Products>
-          <Card onPress={() => navigation.navigate("ProductSelect")}>
-            <Image source={Arroz} />
-            <Descont>
-              <PriceAtual>R$ 44,45</PriceAtual>
-            </Descont>
-            <NameProduct>Arroz Tio João Branco</NameProduct>
-            <NameProduct>5kg</NameProduct>
-          </Card>
-          <Card onPress={() => navigation.navigate("ProductSelect")}>
-            <Image source={AguaSanitaria} />
-            <Descont>
-              <Prices>
-                <PriceAtual>R$ 44,45</PriceAtual>
-                <PriceDescont>R$ 44,45</PriceDescont>
-              </Prices>
-              <Percentual>
-                <ValuePercentua>10%</ValuePercentua>
-              </Percentual>
-            </Descont>
-            <NameProduct>Arroz Tio João Branco</NameProduct>
-            <NameProduct>5kg</NameProduct>
-          </Card>
-          <Card onPress={() => navigation.navigate("ProductSelect")}>
-            <Image source={Arroz} />
-            <Descont>
-              <PriceAtual>R$ 44,45</PriceAtual>
-            </Descont>
-            <NameProduct>Arroz Tio João Branco</NameProduct>
-            <NameProduct>5kg</NameProduct>
-          </Card>
-          <Card onPress={() => navigation.navigate("ProductSelect")}>
-            <Image source={Arroz} />
-            <Descont>
-              <PriceAtual>R$ 44,45</PriceAtual>
-            </Descont>
-            <NameProduct>Arroz Tio João Branco</NameProduct>
-            <NameProduct>5kg</NameProduct>
-          </Card>
+          {data.products.map((product: any) => (
+            <Card
+              key={product.id}
+              onPress={() => navigation.navigate("ProductSelect", { product })}
+            >
+              <Image
+                source={{ uri: product.photo }}
+                style={{ width: 146, height: 146 }}
+              />
+              <Descont>
+                <Prices>
+                  <PriceAtual>R$ {product.price.toFixed(2)}</PriceAtual>
+                  {product.descont && (
+                    <PriceDescont>R$ {product.priceDescont}</PriceDescont>
+                  )}
+                </Prices>
+                {product.descont && (
+                  <Percentual>
+                    <ValuePercentua>10%</ValuePercentua>
+                  </Percentual>
+                )}
+              </Descont>
+              <NameProduct>{product.title}</NameProduct>
+              <NameProduct>{product.libras}</NameProduct>
+            </Card>
+          ))}
         </Products>
       </Scroll>
     </>

@@ -2,7 +2,6 @@ import NavigationBar from "@/components/NavigationBar";
 import { Scroll, Wrapper } from "@/utils/global";
 import React from "react";
 import { Image, SafeAreaView } from "react-native";
-import Arroz from "@/assets/img/arroz.png";
 import {
   Add,
   AddCart,
@@ -21,8 +20,25 @@ import {
 import { BackButton } from "@/assets/svgs";
 import { useNavigation } from "@react-navigation/native";
 
-const ProductSelect: React.FC = () => {
+interface ProductSelectProps {
+  route: {
+    params: {
+      product: {
+        title?: string;
+        libras?: string;
+        description?: string;
+        price?: number;
+        descont?: boolean;
+        priceDescont?: number;
+        photo?: string;
+      };
+    };
+  };
+}
+
+const ProductSelect: React.FC<ProductSelectProps> = ({ route }) => {
   const navigation = useNavigation();
+  const product = route.params.product;
 
   return (
     <>
@@ -33,19 +49,17 @@ const ProductSelect: React.FC = () => {
         </Back>
         <Scroll>
           <Header>
-            <Image source={Arroz} />
+            <Image
+              source={{ uri: product.photo }}
+              style={{ width: 259, height: 259 }}
+            />
           </Header>
           <CategoryView>
             <CategoryName>Despensa</CategoryName>
           </CategoryView>
-          <NameProduct>Arroz Tio João Branco</NameProduct>
-          <PriceProduct>R$ 44,95</PriceProduct>
-          <DescriptionProduct>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book.
-          </DescriptionProduct>
+          <NameProduct>{product.title}</NameProduct>
+          <PriceProduct>R$ {product.price}</PriceProduct>
+          <DescriptionProduct>{product.description}</DescriptionProduct>
         </Scroll>
       </Wrapper>
       <AddCart>
