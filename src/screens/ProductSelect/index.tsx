@@ -1,7 +1,7 @@
 import NavigationBar from "@/components/NavigationBar";
 import { Scroll, Wrapper } from "@/utils/global";
-import React from "react";
-import { Image, SafeAreaView } from "react-native";
+import React, { useState } from "react";
+import { Image, SafeAreaView, TouchableOpacity } from "react-native";
 import {
   Add,
   AddCart,
@@ -19,6 +19,7 @@ import {
 } from "./styles";
 import { BackButton } from "@/assets/svgs";
 import { useNavigation } from "@react-navigation/native";
+import { useStore } from "@/mobx/store";
 
 interface ProductSelectProps {
   route: {
@@ -38,7 +39,22 @@ interface ProductSelectProps {
 
 const ProductSelect: React.FC<ProductSelectProps> = ({ route }) => {
   const navigation = useNavigation();
+  const { cartStore } = useStore();
   const product = route.params.product;
+  const [quantity, setQuantity] = useState(1);
+
+  const incrementQuantity = () => {
+    setQuantity((prevQuantity) => prevQuantity + 1);
+  };
+
+  const decrementQuantity = () => {
+    setQuantity((prevQuantity) => (prevQuantity > 1 ? prevQuantity - 1 : 1));
+  };
+
+  const handleAddToCart = () => {
+    cartStore.addItem({ ...product, quantity });
+    navigation.goBack();
+  };
 
   return (
     <>
@@ -64,11 +80,15 @@ const ProductSelect: React.FC<ProductSelectProps> = ({ route }) => {
       </Wrapper>
       <AddCart>
         <Plus>
-          <PlusAdd>-</PlusAdd>
-          <ValuePlus>1</ValuePlus>
-          <PlusAdd>+</PlusAdd>
+          <TouchableOpacity onPress={decrementQuantity}>
+            <PlusAdd>-</PlusAdd>
+          </TouchableOpacity>
+          <ValuePlus>{quantity}</ValuePlus>
+          <TouchableOpacity onPress={incrementQuantity}>
+            <PlusAdd>+</PlusAdd>
+          </TouchableOpacity>
         </Plus>
-        <Add>
+        <Add onPress={handleAddToCart}>
           <TitleButtonAdd>Adicionar ao carrinho</TitleButtonAdd>
         </Add>
       </AddCart>

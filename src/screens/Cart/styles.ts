@@ -1,5 +1,5 @@
 import { Colors } from "@/utils/colors";
-import { scale } from "@/utils/global";
+import { hexToRgba, scale } from "@/utils/global";
 import styled from "styled-components/native";
 
 export const Not = styled.View`
@@ -20,4 +20,90 @@ export const SubTitleNot = styled.Text`
   font-weight: bold;
   color: ${Colors.text};
   margin-top: ${scale(26)}px;
+`;
+
+export const Car = styled.Text`
+  font-size: ${scale(16)}px;
+  font-weight: bold;
+  color: ${Colors.text};
+  margin-top: ${scale(20)}px;
+  margin-bottom: ${scale(40)}px;
+  text-align: center;
+`;
+
+export const FlexTotal = styled.View`
+  flex: 1;
+`;
+
+export const ContainerCard = styled.View`
+  flex-direction: row;
+`;
+
+export const IconCard = styled.View`
+  width: 30%;
+`;
+
+export const ContentCard = styled.View`
+  width: 70%;
+  position: relative;
+  padding-bottom: ${scale(20)}px;
+`;
+
+export const NameAndTrash = styled.View`
+  flex-direction: row;
+`;
+
+export const Title = styled.Text`
+  font-size: ${scale(15)}px;
+  color: ${Colors.text};
+`;
+
+export const PriceAndPlusProduct = styled.View`
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+`;
+
+export const Price = styled.Text`
+  font-size: ${scale(20)}px;
+  font-weight: bold;
+  color: ${Colors.text};
+  margin-top: ${scale(20)}px;
+`;
+
+export const PriceProduct = styled.View``;
+
+export const Plus = styled.View`
+  width: 50%;
+  background-color: ${hexToRgba(Colors.primary, 0.2)};
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: ${scale(20)}px;
+  padding-horizontal: ${scale(10)}px;
+`;
+
+export const PlusAdd = styled.Text`
+  font-size: ${scale(36)}px;
+  color: ${Colors.primary};
+`;
+
+export const ValuePlus = styled.Text`
+  font-size: ${scale(24)}px;
+  font-weight: bold;
+  color: black;
+`;
+
+export const Line = styled.View`
+  width: 100%;
+  height: 1px;
+  margin-vertical: ${scale(20)}px;
+  background-color: ${Colors.primary};
+`;
+
+export const Continue = styled.View`
+  background-color: ${Colors.primary};
 `;

@@ -7,6 +7,7 @@ import {
 } from "@react-navigation/native";
 import { ApolloProvider } from "@apollo/client";
 import client from "graphql/client";
+import { StoreProvider } from "@/mobx/store";
 
 const MyTheme: Theme = {
   ...DefaultTheme,
@@ -18,10 +19,12 @@ const MyTheme: Theme = {
 
 export default function App() {
   return (
-    <ApolloProvider client={client}>
-      <NavigationContainer theme={MyTheme}>
-        <Navigation />
-      </NavigationContainer>
-    </ApolloProvider>
+    <StoreProvider>
+      <ApolloProvider client={client}>
+        <NavigationContainer theme={MyTheme}>
+          <Navigation />
+        </NavigationContainer>
+      </ApolloProvider>
+    </StoreProvider>
   );
 }
