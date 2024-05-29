@@ -3,7 +3,7 @@
 Este projeto é um aplicativo de catálogo de produtos desenvolvido em React Native com TypeScript, utilizando GraphQL para comunicação com um backend fictício e AWS Amplify para autenticação de usuários. O aplicativo lista produtos, permite a visualização detalhada de cada um e simula a adição de produtos a um carrinho de compras.
 
 <img src="./assets/1.png" alt="Imagem do Aplicativo" width="300" height="600"> <img src="./assets/2.png" alt="Imagem do Aplicativo" width="300" height="600">
-<img src="./assets/3.png" alt="Imagem do Aplicativo" width="300" height="600">
+<img src="./assets/3.png" alt="Imagem do Aplicativo" width="600" height="600">
 
 ## Descrição do Teste
 
