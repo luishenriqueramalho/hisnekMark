@@ -7,7 +7,7 @@ import Button from "@/components/Button";
 import { useNavigation } from "@react-navigation/native";
 import { RootStackParamList } from "@/navigator";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { Auth } from "aws-amplify";
+import { signIn } from "@aws-amplify/auth";
 
 type ProductListNavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
@@ -18,7 +18,7 @@ const Login: React.FC = () => {
 
   const handleLogin = async () => {
     try {
-      await Auth.signIn(username, password);
+      await signIn({ username, password });
       navigation.navigate("Home");
     } catch (error) {
       console.log("Error signing in", error);
