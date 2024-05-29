@@ -7,7 +7,7 @@ import Button from "@/components/Button";
 import { useNavigation } from "@react-navigation/native";
 import { RootStackParamList } from "@/navigator";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { signIn } from "@aws-amplify/auth";
+import { signIn, signUp } from "@aws-amplify/auth";
 
 type ProductListNavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
@@ -16,15 +16,46 @@ const Login: React.FC = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = async () => {
-    try {
-      await signIn({ username, password });
+  const handleLogin = () => {
+    if (username === "admin" && password === "admin") {
       navigation.navigate("Home");
-    } catch (error) {
-      console.log("Error signing in", error);
-      Alert.alert("Erro ao fazer login", error.message);
+    } else {
+      Alert.alert("Login inválido", "Usuário ou senha inválidos!");
     }
   };
+
+  /* const handleLogin = async () => {
+    const response = signUp({
+      username: "luiss",
+      password: "Luis123@",
+      options: {
+        userAttributes: {
+          email: "me@domain.com",
+          phone_number: "+12128601234",
+          given_name: "Jane",
+          family_name: "Doe",
+          nickname: "Jane",
+        },
+      },
+    })
+      .then(() => {
+        console.log(">>>", response);
+      })
+      .catch((e) => console.log("Errorr", e));
+  }; */
+
+  /* const handleLogin = async () => {
+    signIn({
+      username,
+      password,
+      options: {
+        authFlowType: "USER_PASSWORD_AUTH",
+      },
+    })
+      .then(() => console.log("Funcionou"))
+      .catch((e) => console.log("Errorr", e));
+    navigation.navigate("Home");
+  }; */
 
   return (
     <>

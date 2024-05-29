@@ -1,17 +1,13 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "identityPoolName": "hisnekmarkf32e9173_identitypool_f32e9173",
+    "identityPoolName": "hisnekmark99d546dd_identitypool_99d546dd",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "hisnekf32e9173",
-    "userPoolName": "hisnekmarkf32e9173_userpool_f32e9173",
-    "autoVerifiedAttributes": [
-      "email"
-    ],
+    "resourceNameTruncated": "hisnek99d546dd",
+    "userPoolName": "hisnekmark99d546dd_userpool_99d546dd",
+    "autoVerifiedAttributes": ["email"],
     "mfaConfiguration": "OFF",
-    "mfaTypes": [
-      "SMS Text Message"
-    ],
+    "mfaTypes": ["SMS Text Message"],
     "smsAuthenticationMessage": "Your authentication code is {####}",
     "smsVerificationMessage": "Your verification code is {####}",
     "emailVerificationSubject": "Your verification code",
@@ -19,22 +15,16 @@
     "defaultPasswordPolicy": false,
     "passwordPolicyMinLength": 8,
     "passwordPolicyCharacters": [],
-    "requiredAttributes": [
-      "email"
-    ],
+    "requiredAttributes": ["email"],
     "aliasAttributes": [],
     "userpoolClientGenerateSecret": false,
     "userpoolClientRefreshTokenValidity": 30,
-    "userpoolClientWriteAttributes": [
-      "email"
-    ],
-    "userpoolClientReadAttributes": [
-      "email"
-    ],
-    "userpoolClientLambdaRole": "hisnekf32e9173_userpoolclient_lambda_role",
+    "userpoolClientWriteAttributes": ["email"],
+    "userpoolClientReadAttributes": ["email"],
+    "userpoolClientLambdaRole": "hisnek99d546dd_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "f32e9173",
-    "resourceName": "hisnekmarkf32e9173",
+    "sharedId": "99d546dd",
+    "resourceName": "hisnekmark99d546dd",
     "authSelections": "identityPoolAndUserPool",
     "useDefault": "default",
     "userPoolGroupList": [],

@@ -10,6 +10,7 @@ import client from "graphql/client";
 import { StoreProvider } from "@/mobx/store";
 import { Amplify } from "aws-amplify";
 import amplifyconfig from "./src/aws-exports";
+import { Authenticator, withAuthenticator } from "@aws-amplify/ui-react-native";
 
 Amplify.configure(amplifyconfig);
 
@@ -21,14 +22,18 @@ const MyTheme: Theme = {
   },
 };
 
-export default function App() {
+const App = () => {
   return (
-    <StoreProvider>
-      <ApolloProvider client={client}>
-        <NavigationContainer theme={MyTheme}>
-          <Navigation />
-        </NavigationContainer>
-      </ApolloProvider>
-    </StoreProvider>
+    <Authenticator.Provider>
+      <StoreProvider>
+        <ApolloProvider client={client}>
+          <NavigationContainer theme={MyTheme}>
+            <Navigation />
+          </NavigationContainer>
+        </ApolloProvider>
+      </StoreProvider>
+    </Authenticator.Provider>
   );
-}
+};
+
+export default App;
