@@ -51,6 +51,7 @@ export const ContentCard = styled.View`
 
 export const NameAndTrash = styled.View`
   flex-direction: row;
+  justify-content: space-between;
 `;
 
 export const Title = styled.Text`
@@ -105,5 +106,43 @@ export const Line = styled.View`
 `;
 
 export const Continue = styled.View`
+  padding-vertical: ${scale(10)}px;
+`;
+
+export const Frete = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const Total = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: ${scale(9)}px;
+  margin-bottom: ${scale(9)}px;
+`;
+
+export const TitleFrete = styled.Text`
+  font-size: ${scale(13)}px;
+  color: ${Colors.text};
+`;
+
+export const TitleTotal = styled.Text`
+  font-size: ${scale(20)}px;
+  font-weight: bold;
+  color: ${Colors.text};
+`;
+
+export const ButtonContinue = styled.TouchableOpacity.attrs({
+  activeOpacity: 0.7,
+})`
   background-color: ${Colors.primary};
+  border-radius: ${scale(20)}px;
+  padding-vertical: ${scale(10)}px;
+  align-items: center;
+`;
+
+export const TitleButton = styled.Text`
+  font-size: ${scale(20)}px;
+  font-weight: bold;
+  color: ${Colors.white};
 `;
